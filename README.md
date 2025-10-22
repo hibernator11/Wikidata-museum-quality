@@ -43,4 +43,53 @@ WHERE {
 }
 ```
 
+This SPARQL retrievES the last edit date of the assessed art museums (https://w.wiki/FTnc)
+
+```
+SELECT ?museum ?museumLabel ?lastEdited
+WHERE {
+  VALUES ?museum { wd:Q214867 wd:Q160236 wd:Q19675 wd:Q2087788 wd:Q153306 wd:Q1568434 wd:Q812285 wd:Q19877 wd:Q2983474 wd:Q1471477}
+  
+  ?museum schema:dateModified ?lastEdited .
+  
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}
+```
+
+The following SPARQL query retrieves the collection sizes of the assessed art museums (https://w.wiki/FjCA). Note that some of the museums may not have the property "collection or exhibition size".
+
+```
+SELECT ?museum ?museumLabel ?collection
+WHERE {
+  VALUES ?museum { wd:Q214867 wd:Q160236 wd:Q19675 wd:Q2087788 wd:Q153306 wd:Q1568434 wd:Q812285 wd:Q19877 wd:Q2983474 wd:Q1471477 }
+
+ OPTIONAL { 
+    ?museum wdt:P1436 ?collection. 
+  }
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}
+```
+
+This SPARQL query retrieves the Wikimedia Commons links of the assessed Art museums (https://w.wiki/FTnp). Note that the VALUES instruction is employed to provide the Wikidata identifiers of the art museums that will be selected.
+
+```
+SELECT ?museum ?museumLabel ?commonsCategory ?commonsURL
+WHERE {
+  VALUES ?museum { wd:Q214867 wd:Q160236 wd:Q19675 wd:Q2087788 wd:Q153306 wd:Q1568434 wd:Q812285 wd:Q19877 wd:Q2983474 wd:Q1471477 }
+
+ OPTIONAL { 
+    ?museum wdt:P373 ?commonsCategory. 
+    BIND(CONCAT("https://commons.wikimedia.org/wiki/Category:", ENCODE_FOR_URI(?commonsCategory)) AS ?commonsURL)
+  }
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}
+```
+
 ### References
+
+- Candela, G. (2023). An automatic data quality approach to assess semantic data from cultural heritage institutions. Journal of the Association for Information Science and Technology, 74(7), 866–878. https://doi.org/10.1002/asi.24761 
+- Candela, G. (2024). Wikidata in the GLAM sector: A knowledge sharing approach. Wikimedia Research Fund. https://openreview.net/pdf?id=ZdWe2q6xDm 
+- Candela, G., Chambers, S., & Sherratt, T. (2023). An approach to assess the quality of Jupyter projects published by GLAM institutions. Journal of the Association for Information Science and Technology, 74(13), 1550–1564. https://doi.org/10.1002/asi.24835 
+- Candela, G., Cuper, M., Holownia, O., Gabriëls, N., Dobreva, M., & Mahey, M. (2024). A Systematic Review of Wikidata in GLAM Institutions: A Labs Approach. In A. Antonacopoulos, A. Hinze, B. Piwowarski, M. Coustaty, G. M. D. Nunzio, F. Gelati, & N. Vanderschantz (Eds.), Linking Theory and Practice of Digital Libraries—28th International Conference on Theory and Practice of Digital Libraries, TPDL 2024, Ljubljana, Slovenia, September 24-27, 2024, Proceedings, Part II (Vol. 15178, pp. 34–50). Springer. https://doi.org/10.1007/978-3-031-72440-4_4
