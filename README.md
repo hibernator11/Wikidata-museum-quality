@@ -10,6 +10,8 @@ This research intends to analyse the quality of Wikidata and Art museums. This w
 
 ## SPARQL queries
 
+This section describes a selection of SPARQL queries used based on Wikidata to perform the analysis.
+
 ### Retrieving museums in Wikidata
 The following SPARQL Query retrieves Art museums with at least 5,000 records in Wikidata
 
