@@ -29,7 +29,18 @@ ORDER BY DESC(?total)
 LIMIT 100 OFFSET 0
 ```
 
+This SPARQL query retrieves the licenses and copyright information of the assessed art museums.
 
+```
+SELECT ?museum ?museumLabel ?license ?licenseLabel ?copyrightStatus ?copyrightStatusLabel
+WHERE {
+  VALUES ?museum { wd:Q214867 wd:Q160236 wd:Q19675 wd:Q2087788 wd:Q153306 wd:Q1568434 wd:Q812285 wd:Q19877 wd:Q2983474 wd:Q1471477 }
 
+  OPTIONAL { ?museum wdt:P275 ?license. }
+  OPTIONAL { ?museum wdt:P6216 ?copyrightStatus. }
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}
+```
 
 ### References
