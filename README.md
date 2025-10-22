@@ -9,6 +9,8 @@ This research intends to analyse the quality of Wikidata and Art museums. This w
 
 
 ## SPARQL queries
+
+### Retrieving museums in Wikidata
 The following SPARQL Query retrieves Art museums with at least 5,000 records in Wikidata
 
 ```
@@ -29,6 +31,7 @@ ORDER BY DESC(?total)
 LIMIT 100 OFFSET 0
 ```
 
+### Retrieving licences and copyright information
 This SPARQL query retrieves the licenses and copyright information of the assessed art museums.
 
 ```
@@ -43,7 +46,8 @@ WHERE {
 }
 ```
 
-This SPARQL retrievES the last edit date of the assessed art museums (https://w.wiki/FTnc)
+### Retrieving last edit date
+This SPARQL retrieves the last edit date of the assessed art museums (https://w.wiki/FTnc)
 
 ```
 SELECT ?museum ?museumLabel ?lastEdited
@@ -56,6 +60,7 @@ WHERE {
 }
 ```
 
+### Retrieving collection sizes
 The following SPARQL query retrieves the collection sizes of the assessed art museums (https://w.wiki/FjCA). Note that some of the museums may not have the property "collection or exhibition size".
 
 ```
@@ -71,6 +76,7 @@ WHERE {
 }
 ```
 
+### Retrieving Wikimedia Commons links
 This SPARQL query retrieves the Wikimedia Commons links of the assessed Art museums (https://w.wiki/FTnp). Note that the VALUES instruction is employed to provide the Wikidata identifiers of the art museums that will be selected.
 
 ```
