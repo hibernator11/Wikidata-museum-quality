@@ -1,4 +1,4 @@
-# Assessing data quality of Art museums in Wikidata
+# Open Data Practices of Art Museums in Wikidata: A Compliance Assessment
 
 [![DOI](https://zenodo.org/badge/1081352075.svg)](https://doi.org/10.5281/zenodo.17440060)
 
