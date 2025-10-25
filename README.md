@@ -1,5 +1,7 @@
 # Assessing data quality of Art museums in Wikidata
 
+[![DOI](https://zenodo.org/badge/1081352075.svg)](https://doi.org/10.5281/zenodo.17440060)
+
 This research intends to analyse the quality of Wikidata and Art museums. This work was performed by the following authors:
 
 - Meltem Dişli, Information Management, Hacettepe University, Ankara, Türkiye
